@@ -61,8 +61,7 @@ label start:
  
    
 label porridge:
-    show goldilocks surprised
-    #show goldilocks think
+    show goldilocks thinking
     with dissolve
 
     menu:
@@ -100,7 +99,7 @@ label livingroom:
 label chair:
 
     show goldilocks sitting
-    #show goldilocks think
+    #show goldilocks thinking
     with dissolve
 
     menu:
@@ -124,6 +123,10 @@ label chair:
         "The just right bowl":
             show goldilocks BD
             g "Ahhh, this chair is just right."
+
+            hide goldilocks BD
+            # Crash foley
+            "But just as she settled down into the chair to rest, it broke into pieces!"
             jump bedroom
 
 label bedroom:    
@@ -137,32 +140,102 @@ label bedroom:
 
 label bed:
 
-    show goldilocks think
+    show goldilocks thinking
     with dissolve
 
     menu:
 
         "She was deciding which chair to sit on."
 
-        "Not this choice." if bed:
+        "Not this choice." if bed1:
 
             $ bed1 = False
             show goldilocks DX
-            g "That's not right!"
-            jump chair
+            g "This bed is too hard!"
+            jump bed
 
         "Not this choice." if bed2:
 
             $ bed2 = False
             show goldilocks XP
-            g "This is definitely wrong."
-            jump chair
+            g "This bed is too soft."
+            jump bed
 
         "The just right bowl":
             show goldilocks BD
-            g "Ahhh, this chair is just right."
+            g "Ahhh, this bed is just right."
             jump bedroom
 
+label kitchenBear:
+
+    #Insert CG of sleeping Goldilocks
+    "Goldilocks fell asleep".
+
+    show kitchen
+    with dissolve
+
+    "As she was sleeping, the three bears came home."
+
+    show papa
+    pb "Somebody toucha my sphaget!"
+
+    show mama
+    mb "Someone's been eating my porridge."
+
+    show lil bitch
+    lb "Someone's been eating my porridge and they ate it all up!"
+
+    # Footsteps foley
+    jump livingroomBear
+
+label livingroomBear:
+
+    show livingroom
+    with dissolve
+
+    show papa
+    with dissolve
+    pb "Someone's been sitting in my chair."
+
+    show mama
+    with dissolve
+    mb "Someone's been sitting in my chair too!"
+
+    show lil bitch
+    with dissolve
+    lb "Someone's been sitting in my chair and they've broken it to pieces!"
+
+    jump bedroomBear
+
+label bedroomBear:
+
+    show bedroom
+    with dissolve
+
+    "The bears decided to look around some more and when they got upstairs to the bedroom..."
+
+    show papa
+    with dissolve
+    pb "Someone's been sleeping in my bed."
+
+    show mama
+    with dissolve
+    mb "Someone's been sleeping in my bed too!"
+
+    show lil bitch
+    with dissolve
+    lb "Someone's been sleeping in my bed and she's still there!"
+
+    # show cg of sleeping goldilocks with bears over her
+
+    "Just then, Goldilocks woke up and saw the three bears."
+
+    # play music cowboy bebop
+    # Show CG of goldilocks running outside of cabin
+
+    g "TASUKETE, ONII-CHAN!!"
+
+    "THE END"
     # This ends the game.
 
     return
