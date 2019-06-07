@@ -3,3 +3,4 @@
 *.save
 game/saves
 log.txt
+errors.txt
