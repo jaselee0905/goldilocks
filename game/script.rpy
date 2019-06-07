@@ -61,7 +61,8 @@ label start:
  
    
 label porridge:
-    show goldilocks think
+    show goldilocks surprised
+    #show goldilocks think
     with dissolve
 
     menu:
