@@ -12,6 +12,12 @@ define bb = Character("Lil Bear", color="#00FFFF")
 default porridge1 = True
 default porridge2 = True
 
+default chair1 = True
+default chair2 = True
+
+default bed1 = True
+default bed2 = True
+
 # The game starts here.
 
 label start:
@@ -32,15 +38,22 @@ label start:
 
     "Once upon a time..."
 
-    scene cabin    
+    scene cabin  
     show goldilocks neutral
     with dissolve
 
-    "There was a little girl named Goldilocks. She went for a walk in the forest. Pretty soon, she came upon house."
+    "There was a little girl named Goldilocks."
+
+    hide goldilocks neutral
+    with dissolve
+
+    "She went for a walk in the forest. Pretty soon, she came upon house."
 
     "She knocked. And when no one answered, she walked right in."
 
     scene kitchen
+    with dissolve
+
     "At the table in the kitchen, there were three bowls of porridge."
     "Goldilocks was hungry."
 
@@ -48,7 +61,7 @@ label start:
  
    
 label porridge:
-    show goldilocks sad
+    show goldilocks think
     with dissolve
 
     menu:
@@ -77,6 +90,77 @@ label porridge:
 label livingroom:
     "After she'd eaten the her breakfast, she decided she was feeling a little tired."
     
+    scene livingroom
+    with dissolve
+
+    "So, she walked into the living room where she saw three chairs."
+    jump chair
+
+label chair:
+
+    show goldilocks think
+    with dissolve
+
+    menu:
+
+        "She was deciding which chair to sit on."
+
+        "Not this choice." if chair1:
+
+            $ chair1 = False
+            show goldilocks DX
+            g "That's not right!"
+            jump chair
+
+        "Not this choice." if chair2:
+
+            $ chair2 = False
+            show goldilocks XP
+            g "This is definitely wrong."
+            jump chair
+
+        "The just right bowl":
+            show goldilocks BD
+            g "Ahhh, this chair is just right."
+            jump bedroom
+
+label bedroom:    
+    "Goldilocks was very tired by this time, so she went upstairs to the bedroom."
+    
+    scene bedroom
+    with dissolve
+
+    "She was three beds."
+    jump bed
+
+label bed:
+
+    show goldilocks think
+    with dissolve
+
+    menu:
+
+        "She was deciding which chair to sit on."
+
+        "Not this choice." if bed:
+
+            $ bed1 = False
+            show goldilocks DX
+            g "That's not right!"
+            jump chair
+
+        "Not this choice." if bed2:
+
+            $ bed2 = False
+            show goldilocks XP
+            g "This is definitely wrong."
+            jump chair
+
+        "The just right bowl":
+            show goldilocks BD
+            g "Ahhh, this chair is just right."
+            jump bedroom
+
     # This ends the game.
 
     return
