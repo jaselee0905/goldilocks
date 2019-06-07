@@ -99,7 +99,8 @@ label livingroom:
 
 label chair:
 
-    show goldilocks think
+    show goldilocks sitting
+    #show goldilocks think
     with dissolve
 
     menu:
