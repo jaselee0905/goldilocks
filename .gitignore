@@ -7,10 +7,10 @@
 *~
 *.bak
 
-saves
-tmp
-cache
-env
+/game/saves
+/game/tmp
+/game/cache
+/game/env
 
 log.txt
 errors.txt
@@ -82,3 +82,8 @@ sphinx/source/inc
 sphinx/source/thequestion.rst
 tutorial/game/tutorial_director.rpy
 launcher/theme
+*.rpyb
+*.rpyb
+*.save
+game/saves/persistent
+game/saves/navigation.json
