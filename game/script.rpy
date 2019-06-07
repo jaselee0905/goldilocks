@@ -6,7 +6,7 @@
 define g = Character("Goldilocks", color="#FFD700")
 define pb = Character("Papa Bear", color="#800000")
 define mb = Character("Mama Bear", color="#00FF00")
-define bb = Character("Lil Bear", color="#00FFFF")
+define lb = Character("Lil Bear", color="#00FFFF")
 
 # Flags
 default porridge1 = True
@@ -135,7 +135,7 @@ label bedroom:
     scene bedroom
     with dissolve
 
-    "She was three beds."
+    "There was three beds."
     jump bed
 
 label bed:
@@ -145,7 +145,7 @@ label bed:
 
     menu:
 
-        "She was deciding which chair to sit on."
+        "She was deciding which bed to sleep on."
 
         "Not this choice." if bed1:
 
@@ -161,15 +161,15 @@ label bed:
             g "This bed is too soft."
             jump bed
 
-        "The just right bowl":
+        "The just right bed":
             show goldilocks BD
             g "Ahhh, this bed is just right."
-            jump bedroom
+            jump kitchenBear
 
 label kitchenBear:
 
     #Insert CG of sleeping Goldilocks
-    "Goldilocks fell asleep".
+    "Goldilocks fell asleep."
 
     show kitchen
     with dissolve
