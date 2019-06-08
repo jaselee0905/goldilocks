@@ -20,31 +20,30 @@ default bed2 = True
 
 # The game starts here.
 
+# Show a background. This uses a placeholder by default, but you can
+# add a file (named either "bg room.png" or "bg room.jpg") to the
+# images directory to show it.
+
+#scene bg room
+
+# This shows a character sprite. A placeholder is used, but you can
+# replace it by adding a file named "eileen happy.png" to the images
+# directory.
+
+#show eileen happy
+
+# There are multiple ways to play audio. Three channels available:
+ # add files to respective folders (music, sound, audio)
+ # Accepts string name as parameter
+ # Optional parameter
+    # fadeout/fadein 1.0 - transitional fade in seconds
+    # <from _ to_ loop_>
+
+# play music "bgm.mp3"
+# play sound "foley.mp3"
+# play audio "va.mp3"
+
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    #scene bg room
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    #show eileen happy
-
-    # There are multiple ways to play audio. Three channels available:
-    # add files to respective folders (music, sound, audio)
-    # Accepts string name as parameter
-    # Optional parameter
-        # fadeout/fadein 1.0 - transitional fade in seconds
-        # <from _ to_ loop_>
-
-    # play music "bgm.mp3"
-    # play sound "foley.mp3"
-    # play audio "va.mp3"
-
     ################
     # Story begins #
     ################
@@ -52,10 +51,9 @@ label start:
     "Once upon a time..."
 
     scene cabin  
-    play music "music/LS beginning.mp3" fadeout 0.
+    play music "music/LS beginning.mp3"
     queue music "music/LS middle.mp3"
     show goldilocks neutral with dissolve
-
 
     "There was a little girl named Goldilocks."
 
@@ -63,6 +61,7 @@ label start:
 
     "She went for a walk in the forest. Pretty soon, she came upon house."
 
+    play sound "door knocking.mp3"
     "She knocked. And when no one answered, she walked right in."
 
     scene kitchen with dissolve
@@ -134,7 +133,8 @@ label chair:
             g "Ahhh, this chair is just right."
 
             hide goldilocks BD with dissolve
-            # Crash foley
+            
+            play sound "chair breaking.mp3"
             "But just as she settled down into the chair to rest, it broke into pieces!"
             jump bedroom
 
@@ -192,7 +192,7 @@ label kitchenBear:
     show lil bitch with dissolve
     lb "Someone's been eating my porridge and they ate it all up!"
 
-    # Footsteps foley
+    play sound "wood running.mp3"
     jump livingroomBear
 
 label livingroomBear:
@@ -215,6 +215,7 @@ label bedroomBear:
     show bedroom with dissolve
 
     "The bears decided to look around some more and when they got upstairs to the bedroom..."
+    play sound "wood running.mp3"
 
     show papa with dissolve
     pb "Someone's been sleeping in my bed."
