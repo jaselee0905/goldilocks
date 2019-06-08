@@ -51,8 +51,7 @@ label start:
     "Once upon a time..."
 
     scene cabin  
-    play music "music/LS beginning.mp3"
-    queue music "music/LS middle.mp3"
+    play music "<loop 2.91> music/LS.mp3"
     show goldilocks neutral with dissolve
 
     "There was a little girl named Goldilocks."
@@ -178,8 +177,8 @@ label bed:
 
 label sleeping:
 
-    # play music Dango Daikazoku
     # Insert CG of sleeping Goldilocks
+    play music "music/dango.mp3"
     "Goldilocks fell asleep."
 
 label kitchenBear:
