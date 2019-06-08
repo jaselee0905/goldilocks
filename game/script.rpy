@@ -34,25 +34,38 @@ label start:
 
     #show eileen happy
 
-    # These display lines of dialogue.
+    # There are multiple ways to play audio. Three channels available:
+    # add files to respective folders (music, sound, audio)
+    # Accepts string name as parameter
+    # Optional parameter
+        # fadeout/fadein 1.0 - transitional fade in seconds
+        # <from _ to_ loop_>
+
+    # play music "bgm.mp3"
+    # play sound "foley.mp3"
+    # play audio "va.mp3"
+
+    ################
+    # Story begins #
+    ################
 
     "Once upon a time..."
 
     scene cabin  
-    show goldilocks neutral
-    with dissolve
+    play music "music/LS beginning.mp3" fadeout 0.
+    queue music "music/LS middle.mp3"
+    show goldilocks neutral with dissolve
+
 
     "There was a little girl named Goldilocks."
 
-    hide goldilocks neutral
-    with dissolve
+    hide goldilocks neutral with dissolve
 
     "She went for a walk in the forest. Pretty soon, she came upon house."
 
     "She knocked. And when no one answered, she walked right in."
 
-    scene kitchen
-    with dissolve
+    scene kitchen with dissolve
 
     "At the table in the kitchen, there were three bowls of porridge."
     "Goldilocks was hungry."
@@ -61,8 +74,7 @@ label start:
  
    
 label porridge:
-    show goldilocks thinking
-    with dissolve
+    show goldilocks thinking with dissolve
 
     menu:
 
@@ -71,36 +83,33 @@ label porridge:
         "The hot bowl." if porridge1:
 
             $ porridge1 = False
-            show goldilocks DX
+            show goldilocks hot with dissolve
             g "This porridge is too hot!"
             jump porridge
 
         "The cold bowl." if porridge2:
 
             $ porridge2 = False
-            show goldilocks XP
+            show goldilocks cold with dissolve
             g "This porridge is too cold."
             jump porridge
 
         "The just right bowl":
-            show goldilocks BD
+            show goldilocks gucci with dissolve
             g "Ahhh, this porridge is just right."
             jump livingroom
 
 label livingroom:
     "After she'd eaten the her breakfast, she decided she was feeling a little tired."
     
-    scene livingroom
-    with dissolve
+    scene livingroom with dissolve
 
     "So, she walked into the living room where she saw three chairs."
     jump chair
 
 label chair:
 
-    show goldilocks sitting
-    #show goldilocks thinking
-    with dissolve
+    show goldilocks thinking with dissolve
 
     menu:
 
@@ -109,22 +118,22 @@ label chair:
         "Not this choice." if chair1:
 
             $ chair1 = False
-            show goldilocks DX
+            show goldilocks DX with dissolve
             g "That's not right!"
             jump chair
 
         "Not this choice." if chair2:
 
             $ chair2 = False
-            show goldilocks XP
+            show goldilocks XP with dissolve
             g "This is definitely wrong."
             jump chair
 
         "The just right bowl":
-            show goldilocks BD
+            show goldilocks BD with dissolve
             g "Ahhh, this chair is just right."
 
-            hide goldilocks BD
+            hide goldilocks BD with dissolve
             # Crash foley
             "But just as she settled down into the chair to rest, it broke into pieces!"
             jump bedroom
@@ -132,8 +141,7 @@ label chair:
 label bedroom:    
     "Goldilocks was very tired by this time, so she went upstairs to the bedroom."
     
-    scene bedroom
-    with dissolve
+    scene bedroom with dissolve
 
     "There was three beds."
     jump bed
@@ -150,19 +158,19 @@ label bed:
         "Not this choice." if bed1:
 
             $ bed1 = False
-            show goldilocks DX
+            show goldilocks DX with dissolve
             g "This bed is too hard!"
             jump bed
 
         "Not this choice." if bed2:
 
             $ bed2 = False
-            show goldilocks XP
+            show goldilocks XP with dissolve
             g "This bed is too soft."
             jump bed
 
         "The just right bed":
-            show goldilocks BD
+            show goldilocks BD with dissolve
             g "Ahhh, this bed is just right."
             jump kitchenBear
 
@@ -171,18 +179,17 @@ label kitchenBear:
     #Insert CG of sleeping Goldilocks
     "Goldilocks fell asleep."
 
-    show kitchen
-    with dissolve
+    show kitchen with dissolve
 
     "As she was sleeping, the three bears came home."
 
-    show papa
+    show papa with dissolve
     pb "Somebody toucha my sphaget!"
 
-    show mama
+    show mama with dissolve
     mb "Someone's been eating my porridge."
 
-    show lil bitch
+    show lil bitch with dissolve
     lb "Someone's been eating my porridge and they ate it all up!"
 
     # Footsteps foley
@@ -190,40 +197,32 @@ label kitchenBear:
 
 label livingroomBear:
 
-    show livingroom
-    with dissolve
+    show livingroom with dissolve
 
-    show papa
-    with dissolve
+    show papa with dissolve
     pb "Someone's been sitting in my chair."
 
-    show mama
-    with dissolve
+    show mama with dissolve
     mb "Someone's been sitting in my chair too!"
 
-    show lil bitch
-    with dissolve
+    show lil bitch with dissolve
     lb "Someone's been sitting in my chair and they've broken it to pieces!"
 
     jump bedroomBear
 
 label bedroomBear:
 
-    show bedroom
-    with dissolve
+    show bedroom with dissolve
 
     "The bears decided to look around some more and when they got upstairs to the bedroom..."
 
-    show papa
-    with dissolve
+    show papa with dissolve
     pb "Someone's been sleeping in my bed."
 
-    show mama
-    with dissolve
+    show mama with dissolve
     mb "Someone's been sleeping in my bed too!"
 
-    show lil bitch
-    with dissolve
+    show lil bitch with dissolve
     lb "Someone's been sleeping in my bed and she's still there!"
 
     # show cg of sleeping goldilocks with bears over her
