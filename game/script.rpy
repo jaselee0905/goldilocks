@@ -61,7 +61,7 @@ label start:
 
     "She went for a walk in the forest. Pretty soon, she came upon house."
 
-    play sound "door knocking.mp3"
+    play sound "sounds/door knocking.mp3"
     "She knocked. And when no one answered, she walked right in."
 
     scene kitchen with dissolve
@@ -73,20 +73,20 @@ label start:
  
    
 label porridge:
-    show goldilocks thinking with dissolve
+    show goldilocks thinking at left with dissolve
 
     menu:
 
         "She was deciding which bowl she wanted to eat."
 
-        "The hot bowl." if porridge1:
+        "The hot bowl" if porridge1:
 
             $ porridge1 = False
             show goldilocks hot with dissolve
             g "This porridge is too hot!"
             jump porridge
 
-        "The cold bowl." if porridge2:
+        "The cold bowl" if porridge2:
 
             $ porridge2 = False
             show goldilocks cold with dissolve
@@ -94,6 +94,7 @@ label porridge:
             jump porridge
 
         "The just right bowl":
+
             show goldilocks gucci with dissolve
             g "Ahhh, this porridge is just right."
             jump livingroom
@@ -108,33 +109,34 @@ label livingroom:
 
 label chair:
 
-    show goldilocks thinking with dissolve
+    show goldilocks thinking at left with dissolve
 
     menu:
 
         "She was deciding which chair to sit on."
 
-        "Not this choice." if chair1:
+        "Not this choice" if chair1:
 
             $ chair1 = False
             show goldilocks DX with dissolve
             g "That's not right!"
             jump chair
 
-        "Not this choice." if chair2:
+        "Not this choice" if chair2:
 
             $ chair2 = False
             show goldilocks XP with dissolve
             g "This is definitely wrong."
             jump chair
 
-        "The just right bowl":
-            show goldilocks BD with dissolve
+        "The just right chair":
+
+            show goldilocks gucci with dissolve
             g "Ahhh, this chair is just right."
 
-            hide goldilocks BD with dissolve
-            
-            play sound "chair breaking.mp3"
+            hide goldilocks gucci with dissolve
+            # CG of broken goldilocks on the floor with broken chair?
+            play sound "sounds/chair breaking.mp3"
             "But just as she settled down into the chair to rest, it broke into pieces!"
             jump bedroom
 
@@ -148,21 +150,20 @@ label bedroom:
 
 label bed:
 
-    show goldilocks thinking
-    with dissolve
+    show goldilocks thinking at left with dissolve
 
     menu:
 
         "She was deciding which bed to sleep on."
 
-        "Not this choice." if bed1:
+        "The hard bed" if bed1:
 
             $ bed1 = False
             show goldilocks DX with dissolve
             g "This bed is too hard!"
             jump bed
 
-        "Not this choice." if bed2:
+        "The soft bed" if bed2:
 
             $ bed2 = False
             show goldilocks XP with dissolve
@@ -170,15 +171,20 @@ label bed:
             jump bed
 
         "The just right bed":
-            show goldilocks BD with dissolve
+
+            show goldilocks gucci with dissolve
             g "Ahhh, this bed is just right."
-            jump kitchenBear
+            jump sleeping
+
+label sleeping:
+
+    # play music Dango Daikazoku
+    # Insert CG of sleeping Goldilocks
+    "Goldilocks fell asleep."
 
 label kitchenBear:
 
-    #Insert CG of sleeping Goldilocks
-    "Goldilocks fell asleep."
-
+    play music "music/MGS.mp3"
     show kitchen with dissolve
 
     "As she was sleeping, the three bears came home."
@@ -192,12 +198,13 @@ label kitchenBear:
     show lil bitch with dissolve
     lb "Someone's been eating my porridge and they ate it all up!"
 
-    play sound "wood running.mp3"
+    play sound "sounds/wood running.mp3"
     jump livingroomBear
 
 label livingroomBear:
 
-    show livingroom with dissolve
+    scene livingroom with dissolve
+    "The bears continued into the living room."
 
     show papa with dissolve
     pb "Someone's been sitting in my chair."
@@ -212,10 +219,10 @@ label livingroomBear:
 
 label bedroomBear:
 
-    show bedroom with dissolve
+    scene bedroom with dissolve
 
+    play sound "sounds/wood running.mp3"
     "The bears decided to look around some more and when they got upstairs to the bedroom..."
-    play sound "wood running.mp3"
 
     show papa with dissolve
     pb "Someone's been sleeping in my bed."
@@ -226,12 +233,17 @@ label bedroomBear:
     show lil bitch with dissolve
     lb "Someone's been sleeping in my bed and she's still there!"
 
+    play music "music/CB OP.mp3"
     # show cg of sleeping goldilocks with bears over her
 
     "Just then, Goldilocks woke up and saw the three bears."
+    # show cg of sleeping goldilocks with bears over her with eyes open
 
-    # play music cowboy bebop
+    "And she jumped out and ran out of the room."
+
     # Show CG of goldilocks running outside of cabin
+    "Goldilocks ran down the stairs, opened the door, and ran away into the forest. 
+    And she never returned to the home of the three bears."
 
     g "TASUKETE, ONII-CHAN!!"
 

@@ -1,43 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 56, in script
-    "There was a little girl named Goldilocks."
-  File "game/script.rpy", line 56, in script
-    "There was a little girl named Goldilocks."
-  File "renpy/common/000window.rpy", line 98, in _window_auto_callback
-    _window_show()
-  File "renpy/common/000window.rpy", line 60, in _window_show
-    renpy.with_statement(trans)
-IOError: Couldn't find file 'LS beginning.mp3'.
+  File "game/script.rpy", line 65, in script
+    "She knocked. And when no one answered, she walked right in."
+IOError: Couldn't find file 'sounds/xdoor knocking.mp3'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/Applications/renpy-7.2.2-sdk/renpy/bootstrap.py", line 313, in bootstrap
-    renpy.main.main()
-  File "/Applications/renpy-7.2.2-sdk/renpy/main.py", line 525, in main
-    run(restart)
-  File "/Applications/renpy-7.2.2-sdk/renpy/main.py", line 139, in run
-    renpy.execution.run_context(True)
-  File "/Applications/renpy-7.2.2-sdk/renpy/execution.py", line 892, in run_context
-    context.run()
-  File "game/script.rpy", line 56, in script
-    "There was a little girl named Goldilocks."
-  File "game/script.rpy", line 56, in script
-    "There was a little girl named Goldilocks."
-  File "/Applications/renpy-7.2.2-sdk/renpy/ast.py", line 657, in execute
-    statement_name("say")
-  File "/Applications/renpy-7.2.2-sdk/renpy/ast.py", line 45, in statement_name
-    i(name)
-  File "renpy/common/000window.rpy", line 98, in _window_auto_callback
-    _window_show()
-  File "renpy/common/000window.rpy", line 60, in _window_show
-    renpy.with_statement(trans)
-  File "/Applications/renpy-7.2.2-sdk/renpy/exports.py", line 1578, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "/Applications/renpy-7.2.2-sdk/renpy/display/core.py", line 2240, in do_with
-    clear=clear)
+  File "game/script.rpy", line 65, in script
+    "She knocked. And when no one answered, she walked right in."
+  File "/Applications/renpy-7.2.2-sdk/renpy/ast.py", line 694, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Applications/renpy-7.2.2-sdk/renpy/exports.py", line 1322, in say
+    who(what, *args, **kwargs)
+  File "/Applications/renpy-7.2.2-sdk/renpy/character.py", line 1127, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "/Applications/renpy-7.2.2-sdk/renpy/character.py", line 842, in do_display
+    **display_args)
+  File "/Applications/renpy-7.2.2-sdk/renpy/character.py", line 591, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/Applications/renpy-7.2.2-sdk/renpy/ui.py", line 289, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "/Applications/renpy-7.2.2-sdk/renpy/display/core.py", line 2690, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
   File "/Applications/renpy-7.2.2-sdk/renpy/display/core.py", line 3360, in interact_core
@@ -54,9 +38,9 @@ Full traceback:
     rv = renpy.loader.load(fn)
   File "/Applications/renpy-7.2.2-sdk/renpy/loader.py", line 576, in load
     raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'LS beginning.mp3'.
+IOError: Couldn't find file 'sounds/xdoor knocking.mp3'.
 
 Darwin-18.0.0-x86_64-i386-64bit
 Ren'Py 7.2.2.491
 test1 1.0
-Fri Jun  7 23:37:22 2019
+Sat Jun  8 02:39:44 2019
