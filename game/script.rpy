@@ -51,7 +51,7 @@ label start:
     "Once upon a time..."
 
     scene cabin  
-    play music "<loop 2.91> music/LS.mp3"
+    play music "<loop 29.14>music/LS.mp3"
     show goldilocks neutral with dissolve
 
     "There was a little girl named Goldilocks."
@@ -197,7 +197,7 @@ label kitchenBear:
     show lil bitch with dissolve
     lb "Someone's been eating my porridge and they ate it all up!"
 
-    play sound "sounds/wood running.mp3"
+    play sound "<from 0 to 2>sounds/wood running.mp3"
     jump livingroomBear
 
 label livingroomBear:
@@ -220,7 +220,7 @@ label bedroomBear:
 
     scene bedroom with dissolve
 
-    play sound "sounds/wood running.mp3"
+    play sound "<from 0 to 2>sounds/wood running.mp3"
     "The bears decided to look around some more and when they got upstairs to the bedroom..."
 
     show papa with dissolve
@@ -232,7 +232,6 @@ label bedroomBear:
     show lil bitch with dissolve
     lb "Someone's been sleeping in my bed and she's still there!"
 
-    play music "music/CB OP.mp3"
     # show cg of sleeping goldilocks with bears over her
 
     "Just then, Goldilocks woke up and saw the three bears."
@@ -241,6 +240,7 @@ label bedroomBear:
     "And she jumped out and ran out of the room."
 
     # Show CG of goldilocks running outside of cabin
+    play music "music/CB OP.mp3"
     "Goldilocks ran down the stairs, opened the door, and ran away into the forest. 
     And she never returned to the home of the three bears."
 
